@@ -8,10 +8,9 @@ This template does not include any kind of persistence (database). For more adva
 
 ## To get started
 
-Clone this repository
+Open the quickstart
 ```cli
-git clone git@github.com:FireTail-io/firetail-js-lib.git
-cd firetail-js-lib/sample/lamdba
+cd javascript-quickstarts/lamdba
 ```
 Now we can install the samples dependencies
 ```cli
@@ -38,7 +37,7 @@ lamdba/
 * *it's recommended when testing an API to use a tool such as [postman](https://www.postman.com/)*
 
 #### Use Lamdba's native routing mechanism | **[GET: /pets](http://localhost:3002/pets)**
-This endpoint list all pets. You can find the implementation at [handler.js ~ module.exports.pets](https://github.com/FireTail-io/firetail-js-lib/blob/lamdba/sample/lambda/handler.js#L9). It is load on [serverless.yml.js ~ functions:pets:handler](https://github.com/FireTail-io/firetail-js-lib/blob/main/sample/lambda/serverless.yml#L13)
+This endpoint list all pets. You can find the implementation at [handler.js ~ module.exports.pets](/lambda/handler.js#L9). It is load on [serverless.yml.js ~ functions:pets:handler](/lambda/serverless.yml#L13)
 
 The important thing to note is that the service's handler is passed to `firetailWrapper` before being exported. This is what allow Firetail to intercept the request and and apply the API protection.
 
