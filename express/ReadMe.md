@@ -1,4 +1,4 @@
-# Petstore Express.js Example
+# Express.js - quickstart
 
 This is a kitchen sink style example of how to integrate [Firetail](https://www.npmjs.com/package/@public.firetail.io/firetail-api) into an existing Express framework Project.
 

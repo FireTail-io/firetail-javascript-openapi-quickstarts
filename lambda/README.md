@@ -1,4 +1,4 @@
-# Serverless Framework Example
+# Serverless Framework - quickstart
 
 This template demonstrates how to make a simple HTTP API with [Firetail](https://www.npmjs.com/package/@public.firetail.io/firetail-api) running on AWS Lambda and API Gateway using the Serverless Framework.
 
