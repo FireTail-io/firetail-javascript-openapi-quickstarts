@@ -32,4 +32,4 @@ git clone https://github.com/FireTail-io/javascript-quickstarts.git
 ### *Step 3: Framework specific steps*
 
 ## Steps of [Express.js](/express)
-## Steps of [AWS Lamdba](/lamdba)
+## Steps of [AWS lambda](/lambda)
