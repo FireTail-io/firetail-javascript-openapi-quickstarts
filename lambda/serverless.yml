@@ -9,13 +9,18 @@ plugins:
   - serverless-offline
 
 functions:
-  pets:
-    handler: handler.pets
+  listpets:
+    handler: store.listpets
     events:
-      - httpApi:
-          path: /pets
-          payloadVersion: '1.0'
-          method: get
       - http:
           path: /pets
           method: get
+  addpets:
+    handler: store.addpets
+    events:
+      - http:
+          path: /pets
+          method: post
+          response:
+            headers:
+              Content-Type: "'application/xml'"

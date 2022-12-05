@@ -1,5 +1,8 @@
 "use strict";
-
+/*
+@Firetail v0.3.0
+@author Brian Shannon
+*/
 const data = require('./animals.json')
 const events = require('./sampleEvents.json')
 //console.log(require)

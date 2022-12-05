@@ -47,6 +47,22 @@ The important thing to note is that the service's handler is passed to `firetail
 
 ---
 
+```js
+fetch('http://localhost:3000/dev/pets', {
+  method: 'POST',
+  headers: {
+  'Content-Type': 'application/json',
+  'authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
+  },
+  body: JSON.stringify({ "name": "Mr Beast", "tag": "dog" })
+})
+.then((response) => response.text())
+.then((data) => console.log('Success:', data))
+.catch((error) => console.error('Error:', error));
+```
+
+---
+
 ## To deployment this example
 ```
 $ serverless deploy

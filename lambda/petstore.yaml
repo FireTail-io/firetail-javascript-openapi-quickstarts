@@ -43,7 +43,7 @@ paths:
       summary: Create a pet
       operationId: createPets
       security:
-        - key: []
+        - jwt: []
       tags:
         - pets
       requestBody:
