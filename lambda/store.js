@@ -5,6 +5,8 @@
 "use strict";
 const data = require('./animals.json')
 const scribbles = require("scribbles");
+const parseXmlString = require('xml2json');
+
 //console.log(scribbles)
 global.console = scribbles
 const firetailSetup = require("/Users/bri/Firetail/firetail-js-lib/dist")//require("@public.firetail.io/firetail-api");
