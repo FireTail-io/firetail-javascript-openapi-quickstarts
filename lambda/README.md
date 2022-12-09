@@ -26,6 +26,9 @@ const firetailWrapper = firetailSetup(firetailOpts)
 
 // ========== Add the end-point you want
 //...
+
+//To add Firetail logging into your lambda function, 
+// just pass you function into the `firetailWrapper` before exporting it
 module.exports.app = firetailWrapper((event,context) => {
   return {
     statusCode:200,
@@ -34,6 +37,8 @@ module.exports.app = firetailWrapper((event,context) => {
 })
 //... They should match whats in your YAML
 ```
+****
+
 
 ### To use this sample:
 Open the quickstart
