@@ -1,10 +1,11 @@
-# Express.js - quickstart
+# Express.js - Verbose implementation
 
-This is a kitchen sink style example of how to integrate [Firetail](https://www.npmjs.com/package/@public.firetail.io/firetail-api) into an existing Express framework Project.
+This is a **kitchen sink style example** covering all the ways you can adapt the [Firetail](https://www.npmjs.com/package/@public.firetail.io/firetail-api) middleware to match your project.
 
 ## To get started
 
-Open the quickstart
+### Using this implementation
+
 ```cli
 cd javascript-quickstarts/express
 ```
@@ -93,7 +94,7 @@ This Endpoint is configured to require an oAuth2 bearer token. The security is c
 fetch('http://localhost:3001/pets/2', {
   method: 'DELETE',
   headers: {
-  'authorization':"JWT " + token
+  'authorization':"bearer eyJ1c2VyIjoxMjN9"
   }
 })
 .then((response) => response.json())
