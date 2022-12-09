@@ -1,4 +1,4 @@
-# javascript-quickstarts
+# firetail javascript openapi quickstarts
 [![Firetail's JS](https://img.shields.io/badge/Firetail-JS-yellowgreen.svg)](https://www.npmjs.com/package/@public.firetail.io/firetail-api) offers a middleware that can give you the ability to add API logging, auditing and security functionality into your Api services. Let’s get started!
 
 ## Setup
