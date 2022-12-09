@@ -50,7 +50,7 @@ serverless offline
 ```
 
 ## Try it out
-Now that the server is started. Open a browser and go to **http://localhost:3002**
+Now that the server is started. Open a browser and go to **http://localhost:3000**
 
 ## structure
 ```
@@ -64,13 +64,13 @@ lamdba/
 ### We can try some different types of requests
 * *it's recommended when testing an API to use a tool such as [postman](https://www.postman.com/)*
 
-#### Use Lamdba's native routing mechanism | **[GET: /pets](http://localhost:3002/pets)**
+#### Use Lamdba's native routing mechanism | **[GET: /pets](http://localhost:3000/pets)**
 This endpoint list all pets. You can find the implementation at [handler.js ~ module.exports.pets](/lambda/handler.js#L9). It is load on [serverless.yml.js ~ functions:pets:handler](/lambda/serverless.yml#L13)
 
 The important thing to note is that the service's handler is passed to `firetailWrapper` before being exported. This is what allow Firetail to intercept the request and and apply the API protection.
 
 
-#### Passing query arguments | **[GET: /pets?limit=2](http://localhost:3002/pets?limit=2)**
+#### Passing query arguments | **[GET: /pets?limit=2](http://localhost:3000/pets?limit=2)**
  The same as above while utilising queryStringParameters
 
 ---
