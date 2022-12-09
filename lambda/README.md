@@ -8,6 +8,34 @@ This template does not include any kind of persistence (database). For more adva
 
 ## To get started
 
+### a HelloWorld example
+
+Place your API YAML inside the root path of your application. Then run:
+
+```js
+// ========== Lets import what we are going to need
+const firetailSetup = require("@public.firetail.io/firetail-api");
+
+// ========== firetail options
+const firetailOpts = { addApi: "./swagger.yaml" }
+// IF you run locally via 'serverless offline'
+// firetailOpts.lamdba = true // Add the lamdba flag
+
+// ========== install the firetail middleware
+const firetailWrapper = firetailSetup(firetailOpts)
+
+// ========== Add the end-point you want
+//...
+module.exports.app = firetailWrapper((event,context) => {
+  return {
+    statusCode:200,
+    body: "FireTail sample"
+  };
+})
+//... They should match whats in your YAML
+```
+
+### To use this sample:
 Open the quickstart
 ```cli
 cd javascript-quickstarts/lamdba
