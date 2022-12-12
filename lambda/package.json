@@ -2,7 +2,8 @@
   "scripts": {
     "s1": "node sample1",
     "s2": "node sample2",
-    "s3": "node sample3"
+    "s3": "node sample3",
+    "start": "serverless offline"
   },
   "devDependencies": {
     "serverless-offline": "^11.5.0"

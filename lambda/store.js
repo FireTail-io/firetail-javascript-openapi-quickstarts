@@ -28,7 +28,7 @@ const firetailWrapper = firetailSetup({
 })
 
 module.exports.listpets = firetailWrapper((event,context) => {
-
+  const statusCode = 200
   if(event.queryStringParameters
   && event.queryStringParameters.limit){
     return {
@@ -37,7 +37,7 @@ module.exports.listpets = firetailWrapper((event,context) => {
     };
   }
   return {
-    statusCode:200,
+    statusCode,
     body: JSON.stringify(data)
   };
 }); // END listpets
