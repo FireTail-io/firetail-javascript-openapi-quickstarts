@@ -57,13 +57,33 @@ const getPetById = (req: Request, res: Response, next: NextFunction) => {
 //
 // ///////////////////////////////////////////////////////////////////////////////////////
 
+// YAML file => apiDoc
+import yaml from "yaml";
+
+const filePath = "../../swagger-petstore-3.0-example.yaml";
+const apiDoc = yaml.parse(fs.readFileSync(path.resolve(__dirname, filePath), 'utf8'));
+
+// FireTail setup
+import firetail from "./firetail-middleware";
+
+const firetailOpts = {
+    apiUrl: "api.logging.eu-west-1.sandbox.firetail.app",
+    apiKey: "PS-02-50ce286d-1801-43d2-8f98-542a19f12b06-b4e378cf-109d-43f5-be79-5b98543b3d0f",
+    addApi: "../../swagger-petstore-3.0-example.yaml",
+};
+
+// Express app
 const app: Application = express();
-const yaml = "../../swagger-petstore-3.0-example.yaml";
-const apiDoc = fs.readFileSync(path.resolve(__dirname, yaml), "utf8");
 
 initialize({
     app: app,
-    apiDoc: apiDoc,
+    apiDoc: {
+        ...apiDoc,
+        // Inject FT middleware
+        "x-express-openapi-additional-middleware": [firetail(firetailOpts)],
+        // Disable the overly helpful build-in validators 
+        "x-express-openapi-disable-validation-middleware": true,
+    },
     operations: {
         addPet, 
         updatePet,
@@ -74,73 +94,6 @@ initialize({
         "application/json": bodyParser.json(),
     }
 });
-
-// ///////////////////////////////////////////////////////////////////////////////////////
-//
-// Set up FireTail middleware 
-//
-// ///////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-import firetail from "./firetail-middleware";
-
-const firetailOpts = {
-  apiUrl: "api.logging.eu-west-1.sandbox.firetail.app",
-  apiKey: "PS-02-50ce286d-1801-43d2-8f98-542a19f12b06-b4e378cf-109d-43f5-be79-5b98543b3d0f",
-  addApi: "../../swagger-petstore-3.0-example.yaml",
-  // authCallbacks:{
-  //   jwt:({authorization})=>{
-  //     const token = authorization.split(" ").pop().replace(/['"]+/g, '')
-  //     const tokenDecodablePart = token.split('.').pop();
-  //     const decoded = Buffer.from(tokenDecodablePart, 'base64').toString();
-  //     return JSON.parse(decoded)
-  //   },
-  //   key:({authorization})=>{
-  //     if("key" !== authorization){
-  //       throw new Error("Invalid token")
-  //     }
-  //     return true
-  //   },
-  //   basic:({user, pass})=>{
-  //     if (user === 'admin' && pass === 'password') {
-  //       return true
-  //     } else {
-  //       throw new Error('You are not authenticated!');
-  //     }
-  //   },
-  //   oauth2:({authorization,scopes},headers)=>{
-  //     if("RsT5OjbzRn430zqMLgV3Ia" !== authorization){
-  //       throw new Error("Invalid token")
-  //     }
-  //     const result = {
-  //       scopes:Object.keys(scopes)
-  //     }
-
-  //     result.scopes.forEach(scope=>{
-  //       result[scope] = scope
-  //     })
-  //     return result
-  //   },
-  // },
-};
-
-app.use(firetail(firetailOpts))
-
-
-
-
-
-
-
-
-
-
-
 
 // ///////////////////////////////////////////////////////////////////////////////////////
 //
