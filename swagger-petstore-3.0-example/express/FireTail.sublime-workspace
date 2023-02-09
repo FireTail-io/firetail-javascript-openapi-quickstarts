@@ -1,0 +1,430 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"con",
+				"console"
+			],
+			[
+				"ele",
+				"elementType"
+			],
+			[
+				"curren",
+				"currentPageSynced"
+			],
+			[
+				"decsi",
+				"description"
+			],
+			[
+				"respo",
+				"response"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"resp",
+				"response"
+			],
+			[
+				"elem",
+				"elementId"
+			],
+			[
+				"que",
+				"questionnaire"
+			],
+			[
+				"qu",
+				"questionnaireId"
+			],
+			[
+				"elemen",
+				"elementId"
+			],
+			[
+				"load",
+				"loadData"
+			],
+			[
+				"ori",
+				"originalIndex"
+			],
+			[
+				"updatin",
+				"updateInputData"
+			],
+			[
+				"pagen",
+				"pageNumber"
+			],
+			[
+				"publ",
+				"publicationId"
+			],
+			[
+				"public",
+				"publication"
+			],
+			[
+				"quest",
+				"questionnaire"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"forma",
+				"Format Code"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"lint",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"sor",
+				"Sort Lines"
+			],
+			[
+				"sort",
+				"Sort Lines"
+			],
+			[
+				"lis",
+				"Package Control: List Packages"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/ruppell/Code/firetail"
+	],
+	"file_history":
+	[
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/swagger-petstore-3.0-example/express/.gitignore",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/swagger-petstore-3.0-example/express/tsconfig.json",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/swagger-petstore-3.0-example/express/package.json",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/swagger-petstore-3.0-example/express/src/index.ts",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/swagger-petstore-3.0-example/express/src/firetail-middleware.ts",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/swagger-petstore-3.0-example/swagger-petstore-3.0-example.yaml",
+		"/Users/ruppell/Code/firetail/firetail-js-lib/src/services/middleware.ts",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/swagger-petstore-3.0-example/express/node_modules/@public.firetail.io/firetail-api/dist/services/middleware.js",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/express/node_modules/@public.firetail.io/firetail-api/dist/index.js",
+		"/Users/ruppell/Code/firetail/firetail-js-lib/src/services/lang.ts",
+		"/Users/ruppell/Code/firetail/firetail-js-lib/src/index.ts",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/swagger-petstore-3.0-example/express/node_modules/@public.firetail.io/firetail-api/dist/index.js",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/swagger-petstore-3.0-example/express/src/api-v1/pet/index.ts",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/swagger-petstore-3.0-example/express/node_modules/@public.firetail.io/firetail-api/dist/services/log.js",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/swagger-petstore-3.0-example/express/src/data/index.ts",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/swagger-petstore-3.0-example/express/src/api-v1/pet/findByStatus/index.ts",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/swagger-petstore-3.0-example/express/src/api-v1/pet.ts",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/swagger-petstore-3.0-example/express/src/data/index.js",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/swagger-petstore-3.0-example/express/src/api-v1/findByStatus.ts",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/express/.gitignore.exclude",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/express/package.json",
+		"/Users/ruppell/Code/firetail/firetail-py-lib/firetail/swagger-petstore-3.0-example.yaml",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/express/server.js",
+		"/Users/ruppell/Code/firetail/javascript-quickstarts/express/node_modules/@public.firetail.io/firetail-api/dist/index.js",
+		"/Users/ruppell/Code/firetail/javascript-quickstarts/express/node_modules/@public.firetail.io/firetail-api/dist/services/middleware.js",
+		"/Users/ruppell/Code/firetail/javascript-quickstarts/express/node_modules/@public.firetail.io/firetail-api/dist/services/log.js",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/express/node_modules/@public.firetail.io/firetail-api/dist/services/middleware.js",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/express/node_modules/@public.firetail.io/firetail-api/dist/services/log.js",
+		"/Users/ruppell/Code/firetail/javascript-quickstarts/express/server.js",
+		"/Users/ruppell/Code/firetail/firetail-py-lib/firetail/middleware/main.py",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/express/node_modules/@public.firetail.io/firetail-api/dist/services/after.js",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/express/api/showPet/byId.js",
+		"/Users/ruppell/Code/firetail/firetail-js-lib/src/services/security.ts",
+		"/Users/ruppell/Code/firetail/firetail-js-lib/src/services/log.ts",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/express/ReadMe.md",
+		"/Users/ruppell/Code/firetail/firetail-js-lambda/app.ts",
+		"/Users/ruppell/Code/firetail/firetail-js-lambda/src/index.ts",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/README.md",
+		"/Users/ruppell/Code/firetail/javascript-quickstarts/express/ReadMe.md",
+		"/Users/ruppell/Code/firetail/firetail-js-lib/.eslintrc.js",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/express/petstore.yaml",
+		"/Users/ruppell/Code/firetail/firetail-js-lib/src/ui/index.html",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/common-eslint-rules.js",
+		"/Users/ruppell/Code/firetail/javascript-openapi-quickstarts/express/node_modules/express/lib/response.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-editor-elements/QuestionnairePreview.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/models/questionnairePublicationElementModel.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/models/questionnairePublicationModel.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/i18n/messages/default/client-en.json",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/models/questionnaireModel.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/i18n/messages/source/client-en-source.json",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/main.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-editor-elements/QuestionnaireTranslate.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/mixins/questionnaireElementMixin.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/store/actions.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/server/src/api/v1/respondent.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/public-elements/Respond.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/package.json",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/base-elements/PropertySetting.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-elements/GenericElement.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/api/respondent/self/index.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-editor-elements/PageMapSettings.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-view-elements/QuestionnairePage.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/models/objectWithParallelPropertiesModel.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/models/questionnaireElementModel.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/navbar-elements/ProjectEditorMenu.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/server/src/api/v1/authMiddleware.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/server/src/auth.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/QuestionnaireEditor.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/server/src/api/v1/response.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/server/public_config.json",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/server/src/api/v1/auth.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/server/src/models/questionnaire.js",
+		"/Users/ruppell/logs.txt",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-elements/RadioButtonListElement.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/server/src/api/v1/export.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/project-editor-elements/CurrencyCard.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/base-elements/SystemLayerSettings.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-editor-elements/ElementSettings.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-elements/CheckboxListElement.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-elements/ClickLayerElement.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/asset-elements/GeojsonPreview.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/server/tenant_config.json",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/models/responseModel.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-editor-elements/QuestionnaireResults.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/models/questionnaireResponseDataModel.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-editor-elements/QuestionnaireModerate.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/browser-elements/QuestionnaireBrowser.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-editor-elements/QuestionnaireAnalyse.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-elements/RadioButtonGridElement.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/export/docxExporter.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-view-elements/PublicResponseContent.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/mixins/ol/olResponseMixin.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/server/src/shared/questionnaireElementType.ts",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/server/src/shared/responseContent.ts",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/server/src/shared/geojson.ts",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/base-elements/SingleResponseMap.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-editor-elements/QuestionnaireEdit.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-editor-elements/QuestionnairePublish.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/server/src/mapita-express-router/express-router.ts",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-elements/CheckboxElement.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-elements/FileUploadElement.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/mixins/questionnaireEditMixin.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-editor-elements/ElementPopupBar.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-editor-elements/AddElementButton.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-analysis-elements/ChartView.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-analysis-elements/GraphViewPort.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/mixins/draggableMixin.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/post-editor-elements/PostEdit.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/store/util/index.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-editor-elements/ElementBar.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/server/src/shared/questionnaireProperties.ts",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-editor-elements/QuestionnaireSettings.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/store/modules/editor/mutations.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/base-elements/AssetEditModal.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/store/modules/editor/index.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/questionnaire-elements/FileDownloadElement.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/base-elements/ImageAssetPreview.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/post-elements/MapElement.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/maptionnaire2.sublime-project",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/project-editor-elements/ProjectIdeaSettings.vue",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/models/ideaModel.js",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/.eslintrc.js",
+		"/Users/ruppell/response-second-load.csv",
+		"/Users/ruppell/respondent-second-load.csv",
+		"/Users/ruppell/respondent-first-load.csv",
+		"/Users/ruppell/response-first-load.csv",
+		"/Users/ruppell/Library/Preferences/com.sublimetext.4.plist",
+		"/Users/ruppell/Code/mapita/maptionnaire2/src/client/src/components/browser-elements/DashboardBrowser.vue"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 104.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 40.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 150.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "FireTail.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"QuestionnaireEditor.vue",
+				"client/src/components/QuestionnaireEditor.vue"
+			],
+			[
+				"layliadet",
+				"src/client/src/components/layout-elements/LayoutListAndDetail.vue"
+			],
+			[
+				"docexpo",
+				"src/client/src/export/docxExporter.js"
+			],
+			[
+				"questpubl",
+				"src/client/src/components/questionnaire-editor-elements/QuestionnairePublish.vue"
+			],
+			[
+				"objewith",
+				"src/client/src/models/objectWithParallelPropertiesModel.js"
+			],
+			[
+				"objectW",
+				"src/server/node_modules/babel-runtime/helpers/objectWithoutProperties.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 275.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

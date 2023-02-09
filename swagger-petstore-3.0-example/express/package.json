@@ -1,0 +1,34 @@
+{
+  "name": "FireTail client library demo",
+  "description": "This is a standalone demonstration of the FireTail JavaScript client library integration with an OpenAPI 3.0 based Node/Express application.",
+  "version": "1.0.0",
+  "author": "Timo Ruppell <timo@firetail.io>",
+  "license": "LGPL-3.0",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon"
+  },
+  "dependencies": {
+    "@public.firetail.io/firetail-api": "^0.5.2",
+    "body-parser": "1.20.1",
+    "express": "4.18.2",
+    "express-openapi": "12.1.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/lodash": "^4.14.191",
+    "@types/node": "^18.13.0",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ext": "ts,js",
+    "exec": "ts-node src/index.ts"
+  }
+}
