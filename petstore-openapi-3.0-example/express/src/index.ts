@@ -21,11 +21,12 @@ const filePath = "../../swagger-petstore-3.0-example.yaml";
 const apiDoc = yaml.parse(fs.readFileSync(path.resolve(__dirname, filePath), 'utf8'));
 
 // FireTail setup
-import firetail from "./firetail-middleware";
+// import firetail from "./firetail-middleware";
+import firetail from "@public.firetail.io/firetail-api";
 
 const firetailOpts = {
-    apiUrl: "api.logging.eu-west-1.sandbox.firetail.app",
-    apiKey: "PS-02-50ce286d-1801-43d2-8f98-542a19f12b06-b4e378cf-109d-43f5-be79-5b98543b3d0f",
+    firetailAPIHost: "api.logging.eu-west-1.sandbox.firetail.app",
+    firetailAPIKey: "PS-02-50ce286d-1801-43d2-8f98-542a19f12b06-b4e378cf-109d-43f5-be79-5b98543b3d0f",
     addApi: "../../swagger-petstore-3.0-example.yaml",
 };
 
@@ -37,6 +38,7 @@ initialize({
     apiDoc: {
         ...apiDoc,
         // Inject FT middleware
+        // @ts-ignore
         "x-express-openapi-additional-middleware": [firetail(firetailOpts)],
         // Disable the overly helpful build-in validators 
         "x-express-openapi-disable-validation-middleware": true,
