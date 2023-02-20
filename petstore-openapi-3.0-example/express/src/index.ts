@@ -17,17 +17,16 @@ import operations from "./operations";
 // YAML file => apiDoc
 import yaml from "yaml";
 
-const filePath = "../../swagger-petstore-3.0-example.yaml";
-const apiDoc = yaml.parse(fs.readFileSync(path.resolve(__dirname, filePath), 'utf8'));
+const apiDocPath = "../../swagger-petstore-3.0-example.yaml";
+const apiDoc = yaml.parse(fs.readFileSync(path.resolve(__dirname, apiDocPath), 'utf8'));
 
 // FireTail setup
-// import firetail from "./firetail-middleware";
 import firetail from "@public.firetail.io/firetail-api";
 
-const firetailOpts = {
-    firetailAPIHost: "api.logging.eu-west-1.sandbox.firetail.app",
+const firetailContext = {
+    apiDocPath: apiDocPath,
     firetailAPIKey: "PS-02-50ce286d-1801-43d2-8f98-542a19f12b06-b4e378cf-109d-43f5-be79-5b98543b3d0f",
-    addApi: "../../swagger-petstore-3.0-example.yaml",
+    firetailAPIHost: "api.logging.eu-west-1.sandbox.firetail.app",
 };
 
 // Express app
