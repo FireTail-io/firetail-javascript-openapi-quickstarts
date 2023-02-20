@@ -38,9 +38,8 @@ initialize({
     apiDoc: {
         ...apiDoc,
         // Inject FT middleware
-        // @ts-ignore
-        "x-express-openapi-additional-middleware": [firetail(firetailOpts)],
-        // Disable the overly helpful build-in validators 
+        "x-express-openapi-additional-middleware": [firetail(firetailContext)],
+        // Disable the overly helpful built-in validators 
         "x-express-openapi-disable-validation-middleware": true,
     },
     operations: operations,
