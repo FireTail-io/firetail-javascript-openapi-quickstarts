@@ -7,7 +7,7 @@
   "main": "build/index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "nodemon"
+    "start": "nodemon"
   },
   "dependencies": {
     "@public.firetail.io/firetail-api": "file:../../../firetail-js-lib",
@@ -38,8 +38,10 @@
   },
   "nodemonConfig": {
     "watch": [
-      "src"
+      "src",
+      "../../../firetail-js-lib/dist"
     ],
+    "delay": "100",
     "ext": "ts,js",
     "exec": "ts-node src/index.ts"
   }
