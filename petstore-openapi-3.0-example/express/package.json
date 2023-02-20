@@ -10,7 +10,6 @@
     "start": "nodemon"
   },
   "dependencies": {
-    "@public.firetail.io/firetail-api": "file:../../../firetail-js-lib",
     "body-parser": "1.20.1",
     "express": "4.18.2",
     "express-openapi": "12.1.0",

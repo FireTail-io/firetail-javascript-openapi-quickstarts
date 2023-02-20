@@ -21,7 +21,7 @@ const apiDocPath = "../../swagger-petstore-3.0-example.yaml";
 const apiDoc = yaml.parse(fs.readFileSync(path.resolve(__dirname, apiDocPath), 'utf8'));
 
 // FireTail setup
-import firetail from "@public.firetail.io/firetail-api";
+import firetail from "../../../../firetail-js-lib/dist";
 
 const firetailContext = {
     apiDocPath: apiDocPath,
