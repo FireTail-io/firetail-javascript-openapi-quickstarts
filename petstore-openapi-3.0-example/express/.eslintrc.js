@@ -2,7 +2,7 @@
     @typescript-eslint/no-require-imports, 
     @typescript-eslint/no-var-requires 
 */
-const rules = require("../../common-eslint-rules");
+const rules = require("../../../../common-eslint-rules");
 
 // This adjusts "standard" object shorthand to be consistent
 rules["object-shorthand"] = ["warn", "consistent"];
