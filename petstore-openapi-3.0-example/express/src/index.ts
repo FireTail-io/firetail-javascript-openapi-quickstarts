@@ -3,10 +3,12 @@ import { initialize } from "express-openapi";
 
 import fs from "fs";
 import path from "path";
+import yaml from "yaml";
 import bodyParser from "body-parser";
 
 import operations from "./operations";
 
+import firetail from "../../../../firetail-js-lib/dist";
 
 // ///////////////////////////////////////////////////////////////////////////////////////
 //
@@ -15,14 +17,10 @@ import operations from "./operations";
 // ///////////////////////////////////////////////////////////////////////////////////////
 
 // YAML file => apiDoc
-import yaml from "yaml";
-
 const apiDocPath = "../../swagger-petstore-3.0-example.yaml";
-const apiDoc = yaml.parse(fs.readFileSync(path.resolve(__dirname, apiDocPath), 'utf8'));
+const apiDoc = yaml.parse(fs.readFileSync(path.resolve(__dirname, apiDocPath), "utf8"));
 
 // FireTail setup
-import firetail from "../../../../firetail-js-lib/dist";
-
 const firetailContext = {
     apiDocPath: apiDocPath,
     firetailAPIKey: "PS-02-50ce286d-1801-43d2-8f98-542a19f12b06-b4e378cf-109d-43f5-be79-5b98543b3d0f",
@@ -50,7 +48,7 @@ initialize({
     consumesMiddleware: {
         "text/text": bodyParser.text(),
         "application/json": bodyParser.json(),
-    }
+    },
 });
 
 // ///////////////////////////////////////////////////////////////////////////////////////
@@ -62,5 +60,5 @@ initialize({
 const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
-	console.log("Server is running on port", PORT);
+    console.log("Server is running on port", PORT);
 });
