@@ -40,7 +40,9 @@ paths:
             schema:
               $ref: '#/components/schemas/Pet'
       security:
-          - jwt: []
+        - jwt: ["write"]
+      x-ft-security:
+        authenticated-principal-path: user.userId
     put:
       tags:
         - pet
@@ -576,7 +578,6 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
-      x-bearerInfoFunc: jwtdecoder.decode_token
     apiKey:
       type: apiKey
       in: header

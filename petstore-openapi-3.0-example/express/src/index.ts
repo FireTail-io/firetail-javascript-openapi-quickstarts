@@ -26,8 +26,13 @@ const firetailContext = {
     firetailAPIKey: "PS-02-50ce286d-1801-43d2-8f98-542a19f12b06-b4e378cf-109d-43f5-be79-5b98543b3d0f",
     firetailAPIHost: "api.logging.eu-west-1.sandbox.firetail.app",
     securityHandlers: {
-        jwt: (request) => {
-            return false;
+        jwt: (request, scopes, securityDefinition) => {
+            console.log("Handling security for: ", request.path, scopes, securityDefinition);
+            request.user = {
+                name: "Fred",
+                userId: 1234567890,
+            };
+            return true;
         },
     },
 };
