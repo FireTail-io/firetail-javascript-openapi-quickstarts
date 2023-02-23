@@ -56,6 +56,14 @@ initialize({
     },
 });
 
+// DEMO for non spec routing
+// @ts-ignore
+// app.use(firetail(firetailContext));
+// app.get("/*", (req, res) => res.send({foo: "GOTCHA"}));
+// app.delete("/pet/:id?", (req, res) => { res.send("WHOOPSIE"); });
+// app.get("/unsanctioned", (req, res) => { res.send("WHOOPSIE"); });
+
+
 // ///////////////////////////////////////////////////////////////////////////////////////
 //
 // Start server
