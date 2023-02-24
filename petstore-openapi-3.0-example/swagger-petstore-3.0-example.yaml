@@ -715,6 +715,7 @@ components:
         name:
           type: string
     Pet:
+      additionalProperties: false
       required:
         - name
         - photoUrls

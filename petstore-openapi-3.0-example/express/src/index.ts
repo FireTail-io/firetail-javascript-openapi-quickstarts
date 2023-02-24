@@ -37,7 +37,6 @@ const firetailContext = {
     },
 };
 
-
 // Express app
 const app: Application = express();
 

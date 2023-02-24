@@ -22,7 +22,7 @@ const addPet = (req: Request, res: Response) => {
 
     const borkedResponse = {
         ...req.body,
-        // id: "This should be an int",
+        id: "This should be an int",
         foo: "This should not exists",
     };
 
