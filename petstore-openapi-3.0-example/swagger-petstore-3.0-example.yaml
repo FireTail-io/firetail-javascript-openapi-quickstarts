@@ -722,9 +722,11 @@ components:
         id:
           type: integer
           format: int64
+          minimum: 5
           example: 10
         name:
           type: string
+          pattern: ^dog.*
           example: doggie
         category:
           $ref: '#/components/schemas/Category'
