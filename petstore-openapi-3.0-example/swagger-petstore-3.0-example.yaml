@@ -43,6 +43,8 @@ paths:
         - jwt: ["write"]
       x-ft-security:
         authenticated-principal-path: user.userId
+        sensitive-headers:
+          - X-Pet-Store-Secret-Key
     put:
       tags:
         - pet
@@ -725,6 +727,11 @@ components:
           format: int64
           minimum: 5
           example: 10
+        timesFetched:
+          type: integer
+          format: int64
+          example: 10
+          readOnly: true
         name:
           type: string
           pattern: ^dog.*

@@ -35,6 +35,7 @@ const firetailContext = {
             return true;
         },
     },
+    sensitiveHeaders: ["X-Custom-Cookie"],
 };
 
 // Express app

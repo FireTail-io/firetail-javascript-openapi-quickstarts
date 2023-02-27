@@ -25,11 +25,10 @@ const addPet = (req: Request, res: Response) => {
         id: "This should be an int",
         foo: "This should not exists",
     };
+    delete borkedResponse.name;
 
-    // delete borkedResponse.name;
-
-    return res.status(200).json(borkedResponse);
-    // return res.status(200).json(req.body);
+    // return res.status(200).json(borkedResponse);
+    return res.status(200).json(req.body);
 };
 
 const updatePet = (req: Request, res: Response) => {
