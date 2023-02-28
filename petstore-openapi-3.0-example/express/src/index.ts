@@ -1,3 +1,5 @@
+import * as dotenv from "dotenv";
+
 import express, { Application } from "express";
 import { initialize } from "express-openapi";
 
@@ -16,6 +18,8 @@ import firetail from "../../../../firetail-js-lib/dist";
 //
 // ///////////////////////////////////////////////////////////////////////////////////////
 
+dotenv.config();
+
 // YAML file => apiDoc
 const apiDocPath = "../../swagger-petstore-3.0-example.yaml";
 const apiDoc = yaml.parse(fs.readFileSync(path.resolve(__dirname, apiDocPath), "utf8"));
@@ -23,8 +27,8 @@ const apiDoc = yaml.parse(fs.readFileSync(path.resolve(__dirname, apiDocPath), "
 // FireTail setup
 const firetailContext = {
     apiDocPath: apiDocPath,
-    firetailAPIKey: "PS-02-50ce286d-1801-43d2-8f98-542a19f12b06-b4e378cf-109d-43f5-be79-5b98543b3d0f",
-    firetailAPIHost: "api.logging.eu-west-1.sandbox.firetail.app",
+    firetailAPIKey: process.env.FIRETAIL_API_KEY,
+    firetailAPIHost: process.env.FIRETAIL_API_HOST,
     securityHandlers: {
         jwt: (request, scopes, securityDefinition) => {
             console.log("Handling security for: ", request.path, scopes, securityDefinition);
@@ -41,11 +45,20 @@ const firetailContext = {
 // Express app
 const app: Application = express();
 
+// DEMO for non spec routing
+// eslint-disable-next-line
+// @ts-ignore
+// app.use(firetail(firetailContext));
+// app.delete("/pet", (req, res) => { res.send("WHOOPSIE"); });
+// app.get("/unsanctioned", (req, res) => { res.send("WHOOPSIE"); });
+
+
 initialize({
     app: app,
     apiDoc: {
         ...apiDoc,
         // Inject FT middleware
+        // "x-express-openapi-additional-middleware": [firetail(firetailContext)],
         "x-express-openapi-additional-middleware": [firetail(firetailContext)],
         // Disable the overly helpful built-in validators 
         "x-express-openapi-disable-validation-middleware": true,
@@ -57,12 +70,6 @@ initialize({
     },
 });
 
-// DEMO for non spec routing
-// eslint-disable-next-line
-// @ts-ignore
-// app.use(firetail(firetailContext));
-// app.delete("/pet", (req, res) => { res.send("WHOOPSIE"); });
-// app.get("/unsanctioned", (req, res) => { res.send("WHOOPSIE"); });
 
 
 // ///////////////////////////////////////////////////////////////////////////////////////
