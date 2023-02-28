@@ -30,16 +30,23 @@ const firetailContext = {
     firetailAPIKey: process.env.FIRETAIL_API_KEY,
     firetailAPIHost: process.env.FIRETAIL_API_HOST,
     securityHandlers: {
+        // eslint-disable-next-line
         jwt: (request, scopes, securityDefinition) => {
-            console.log("Handling security for: ", request.path, scopes, securityDefinition);
             request.user = {
-                name: "Fred",
+                name: "Fred Flintstone",
                 userId: 1234567890,
             };
             return true;
         },
+        // eslint-disable-next-line
+        apiKey: (request, scopes, securityDefinition) => true,
     },
     sensitiveHeaders: ["X-Custom-Cookie"],
+    accessResolvers: {
+        petAccess: (authenticatedPrincipal, authorizedPrincipal) => {
+            return authenticatedPrincipal === authorizedPrincipal;
+        },
+    },
 };
 
 // Express app

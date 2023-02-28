@@ -41,10 +41,9 @@ paths:
               $ref: '#/components/schemas/Pet'
       security:
         - jwt: ["write"]
-      x-ft-security:
-        authenticated-principal-path: user.userId
-        sensitive-headers:
-          - X-Pet-Store-Secret-Key
+          apiKey: []
+      x-ft-sensitive-headers:
+        - X-Pet-Store-Secret-Key
     put:
       tags:
         - pet
@@ -62,6 +61,10 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Pet not found
+          content: 
+            text/text:
+              schema:
+                type: string
         '405':
           description: Validation exception
       requestBody:
@@ -175,6 +178,10 @@ paths:
                 type: string
       security:
         - jwt: []
+      x-ft-security:
+        access-resolver: petAccess
+        authenticated-principal-path: user.userId
+        resource-authorized-principal-path: ownerId
   #   post:
   #     tags:
   #       - pet
@@ -742,7 +749,7 @@ components:
           readOnly: true
         name:
           type: string
-          pattern: ^dog.*
+          pattern: ^(dog|Dog|cat|Cat).*
           example: doggie
         category:
           $ref: '#/components/schemas/Category'
