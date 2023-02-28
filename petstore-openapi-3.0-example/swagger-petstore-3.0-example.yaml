@@ -163,8 +163,16 @@ paths:
                 $ref: '#/components/schemas/Pet'
         '400':
           description: Invalid ID supplied
+          content:
+            text/text:
+              schema:
+                type: string
         '404':
           description: Pet not found
+          content:
+            text/text:
+              schema:
+                type: string
       security:
         - jwt: []
   #   post:
