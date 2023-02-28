@@ -43,8 +43,8 @@ const firetailContext = {
     },
     sensitiveHeaders: ["X-Custom-Cookie"],
     accessResolvers: {
-        petAccess: (authenticatedPrincipal, authorizedPrincipal) => {
-            return authenticatedPrincipal === authorizedPrincipal;
+        petAccess: (authenticatedPrincipal, authorisedPrincipal) => {
+            return authenticatedPrincipal === authorisedPrincipal;
         },
     },
 };

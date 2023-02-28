@@ -181,7 +181,7 @@ paths:
       x-ft-security:
         access-resolver: petAccess
         authenticated-principal-path: user.userId
-        resource-authorized-principal-path: ownerId
+        resource-authorised-principal-path: ownerId
   #   post:
   #     tags:
   #       - pet
