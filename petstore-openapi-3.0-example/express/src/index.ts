@@ -11,7 +11,7 @@ import bodyParser from "body-parser";
 import map from "lodash/map";
 import some from "lodash/some";
 
-import { OpenFgaApi } from "@openfga/sdk";
+import auth from "./auth";
 
 import operations from "./operations";
 
@@ -25,13 +25,6 @@ import firetail from "../../../../firetail-js-lib/dist";
 
 dotenv.config();
 
-// OpenFGA init
-const fgaClient = new OpenFgaApi({
-    apiScheme: "http",
-    apiHost: "localhost:8080",
-    storeId: "01GTE2PNCT9TDEWCAXP7BVSK79",
-});
-
 // YAML file => apiDoc
 const apiDocPath = "../../swagger-petstore-3.0-example.yaml";
 const apiDoc = yaml.parse(
@@ -43,6 +36,7 @@ const firetailContext = {
     apiDocPath: apiDocPath,
     firetailAPIKey: process.env.FIRETAIL_API_KEY,
     firetailAPIHost: process.env.FIRETAIL_API_HOST,
+    sensitiveHeaders: ["X-Custom-Cookie"],
     securityHandlers: {
         // eslint-disable-next-line
         jwt: (request, scopes, securityDefinition) => {
@@ -55,24 +49,31 @@ const firetailContext = {
         // eslint-disable-next-line
         apiKey: (request, scopes, securityDefinition) => true,
     },
-    sensitiveHeaders: ["X-Custom-Cookie"],
+    identityResolvers: {},
     accessResolvers: {
-        petAccess: (authNPrincipal, authZPrincipal) => {
+        // eslint-disable-next-line
+        petAccess: (authNPrincipal, authZPrincipal, authZResource) => {
             return authNPrincipal === authZPrincipal;
         },
-        petAccessByTag: async (authNPrincipal, authZResource) => {
+        petAccessByTag: async (
+            authNPrincipal,
+            authZPrincipal,
+            authZResource
+        ) => {
             // authZResource contains a "tags" array and we can check each tag
             // for authZ via OpenFGA
-            const checks = await Promise.all(map(authZResource.tags, async t => {
-                return await fgaClient.check({
-                    authorization_model_id: "01GTE2QYARWF43D8392DY4G3TR",
-                    tuple_key: {
-                        user: `user:${authNPrincipal}`,
-                        relation: "reader",
-                        object: `tag:${t.id}`,
-                    },
-                });
-            }));
+            const checks = await Promise.all(
+                map(authZResource.tags, async t => {
+                    return await auth.fgaClient.check({
+                        authorization_model_id: auth.authorization_model_id,
+                        tuple_key: {
+                            user: `user:${authNPrincipal}`,
+                            relation: "reader",
+                            object: `tag:${t.id}`,
+                        },
+                    });
+                })
+            );
             // checks is of the form [{allowed: <bool>, ...}, ...]
             return some(checks, "allowed");
         },

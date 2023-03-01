@@ -42,6 +42,8 @@ paths:
       security:
         - jwt: ["write"]
           apiKey: []
+      x-ft-security:
+        authenticated-principal-path: user.userId
       x-ft-sensitive-headers:
         - X-Pet-Store-Secret-Key
     put:
@@ -181,10 +183,10 @@ paths:
       x-ft-security:
         authenticated-principal-path: user.userId
         ### principal based access
-        access-resolver: petAccess
-        resource-authorised-principal-path: ownerId
+        # access-resolver: petAccess
+        # resource-authorised-principal-path: ownerId
         ### tag based access
-        # access-resolver: petAccessByTag
+        access-resolver: petAccessByTag
   #   post:
   #     tags:
   #       - pet
