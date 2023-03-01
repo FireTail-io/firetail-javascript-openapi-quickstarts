@@ -8,6 +8,11 @@ import path from "path";
 import yaml from "yaml";
 import bodyParser from "body-parser";
 
+import map from "lodash/map";
+import some from "lodash/some";
+
+import { OpenFgaApi } from "@openfga/sdk";
+
 import operations from "./operations";
 
 import firetail from "../../../../firetail-js-lib/dist";
@@ -20,9 +25,18 @@ import firetail from "../../../../firetail-js-lib/dist";
 
 dotenv.config();
 
+// OpenFGA init
+const fgaClient = new OpenFgaApi({
+    apiScheme: "http",
+    apiHost: "localhost:8080",
+    storeId: "01GTE2PNCT9TDEWCAXP7BVSK79",
+});
+
 // YAML file => apiDoc
 const apiDocPath = "../../swagger-petstore-3.0-example.yaml";
-const apiDoc = yaml.parse(fs.readFileSync(path.resolve(__dirname, apiDocPath), "utf8"));
+const apiDoc = yaml.parse(
+    fs.readFileSync(path.resolve(__dirname, apiDocPath), "utf8")
+);
 
 // FireTail setup
 const firetailContext = {
@@ -43,8 +57,23 @@ const firetailContext = {
     },
     sensitiveHeaders: ["X-Custom-Cookie"],
     accessResolvers: {
-        petAccess: (authenticatedPrincipal, authorisedPrincipal) => {
-            return authenticatedPrincipal === authorisedPrincipal;
+        petAccess: (authNPrincipal, authZPrincipal) => {
+            return authNPrincipal === authZPrincipal;
+        },
+        petAccessByTag: async (authNPrincipal, authZResource) => {
+            const allowed = await Promise.all(map(authZResource.tags, async t => {
+                console.log("Checking ", t);
+                return await fgaClient.check({
+                    authorization_model_id: "01GTE2QYARWF43D8392DY4G3TR",
+                    tuple_key: {
+                        user: `user:${authNPrincipal}`,
+                        relation: "reader",
+                        object: `tag:${t.id}`,
+                    },
+                });
+            }));
+            console.log("GOT ALL BACK", allowed, some(allowed, "allowed"));
+            return some(allowed, "allowed");
         },
     },
 };
@@ -59,7 +88,6 @@ const app: Application = express();
 // app.delete("/pet", (req, res) => { res.send("WHOOPSIE"); });
 // app.get("/unsanctioned", (req, res) => { res.send("WHOOPSIE"); });
 
-
 initialize({
     app: app,
     apiDoc: {
@@ -67,7 +95,7 @@ initialize({
         // Inject FT middleware
         // "x-express-openapi-additional-middleware": [firetail(firetailContext)],
         "x-express-openapi-additional-middleware": [firetail(firetailContext)],
-        // Disable the overly helpful built-in validators 
+        // Disable the overly helpful built-in validators
         "x-express-openapi-disable-validation-middleware": true,
     },
     operations: operations,
@@ -76,8 +104,6 @@ initialize({
         "application/json": bodyParser.json(),
     },
 });
-
-
 
 // ///////////////////////////////////////////////////////////////////////////////////////
 //

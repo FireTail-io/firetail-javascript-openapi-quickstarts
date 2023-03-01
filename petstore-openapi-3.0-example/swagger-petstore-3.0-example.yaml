@@ -179,9 +179,12 @@ paths:
       security:
         - jwt: []
       x-ft-security:
-        access-resolver: petAccess
         authenticated-principal-path: user.userId
+        ### principal based access
+        access-resolver: petAccess
         resource-authorised-principal-path: ownerId
+        ### tag based access
+        # access-resolver: petAccessByTag
   #   post:
   #     tags:
   #       - pet
