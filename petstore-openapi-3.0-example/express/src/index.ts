@@ -1,5 +1,3 @@
-import * as dotenv from "dotenv";
-
 import express, { Application } from "express";
 import { initialize } from "express-openapi";
 
@@ -17,13 +15,14 @@ import operations from "./operations";
 
 import firetail from "../../../../firetail-js-lib/dist";
 
+import * as dotenv from "dotenv";
+dotenv.config();
+
 // ///////////////////////////////////////////////////////////////////////////////////////
 //
 // Set up Express via OpenAPI spec
 //
 // ///////////////////////////////////////////////////////////////////////////////////////
-
-dotenv.config();
 
 // YAML file => apiDoc
 const apiDocPath = "../../swagger-petstore-3.0-example.yaml";
@@ -74,7 +73,7 @@ const firetailContext = {
                     });
                 })
             );
-            // checks is of the form [{allowed: <bool>, ...}, ...]
+            // checks is of the form [{allowed: <boolean>, ...}, ...]
             return some(checks, "allowed");
         },
     },
