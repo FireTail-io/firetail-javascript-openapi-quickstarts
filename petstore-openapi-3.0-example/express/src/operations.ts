@@ -20,15 +20,15 @@ const addPet = (req: Request, res: Response) => {
     }
     data.pets = _.unionBy(data.pets, [req.body], "id");
 
-    const borkedResponse = {
-        ...req.body,
-        id: "This should be an int",
-        foo: "This should not exists",
-    };
-    delete borkedResponse.name;
-
-    // return res.status(200).json(borkedResponse);
     return res.status(200).json(req.body);
+
+    // const borkedResponse = {
+    //     ...req.body,
+    //     id: "This should be an int",
+    //     foo: "This should not exists",
+    // };
+    // delete borkedResponse.name;
+    // return res.status(200).json(borkedResponse);
 };
 
 const updatePet = (req: Request, res: Response) => {

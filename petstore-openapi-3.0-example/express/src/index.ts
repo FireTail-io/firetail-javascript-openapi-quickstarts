@@ -61,8 +61,9 @@ const firetailContext = {
             return authNPrincipal === authZPrincipal;
         },
         petAccessByTag: async (authNPrincipal, authZResource) => {
-            const allowed = await Promise.all(map(authZResource.tags, async t => {
-                console.log("Checking ", t);
+            // authZResource contains a "tags" array and we can check each tag
+            // for authZ via OpenFGA
+            const checks = await Promise.all(map(authZResource.tags, async t => {
                 return await fgaClient.check({
                     authorization_model_id: "01GTE2QYARWF43D8392DY4G3TR",
                     tuple_key: {
@@ -72,8 +73,8 @@ const firetailContext = {
                     },
                 });
             }));
-            console.log("GOT ALL BACK", allowed, some(allowed, "allowed"));
-            return some(allowed, "allowed");
+            // checks is of the form [{allowed: <bool>, ...}, ...]
+            return some(checks, "allowed");
         },
     },
 };
@@ -93,7 +94,6 @@ initialize({
     apiDoc: {
         ...apiDoc,
         // Inject FT middleware
-        // "x-express-openapi-additional-middleware": [firetail(firetailContext)],
         "x-express-openapi-additional-middleware": [firetail(firetailContext)],
         // Disable the overly helpful built-in validators
         "x-express-openapi-disable-validation-middleware": true,
