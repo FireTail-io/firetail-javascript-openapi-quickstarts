@@ -17,18 +17,18 @@ import firetail from "../../../../firetail-js-lib/dist";
 
 import * as dotenv from "dotenv";
 dotenv.config();
-
-// ///////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////
 //
 // Set up Express via OpenAPI spec
 //
-// ///////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////
 
 // YAML file => apiDoc
-const apiDocPath = "../../swagger-petstore-3.0-example.yaml";
-const apiDoc = yaml.parse(
-    fs.readFileSync(path.resolve(__dirname, apiDocPath), "utf8")
+const apiDocPath = path.resolve(
+    __dirname,
+    "../../swagger-petstore-3.0-example.yaml"
 );
+const apiDoc = yaml.parse(fs.readFileSync(apiDocPath, "utf8"));
 
 // FireTail setup
 const firetailContext = {
