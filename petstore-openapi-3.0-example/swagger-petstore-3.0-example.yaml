@@ -24,13 +24,13 @@ paths:
       description: Add a new pet to the store
       operationId: addPet
       responses:
-        '200':
+        "200":
           description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Pet'
-        '405':
+                $ref: "#/components/schemas/Pet"
+        "405":
           description: Invalid input
       requestBody:
         description: Create a new pet in the store
@@ -38,7 +38,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Pet'
+              $ref: "#/components/schemas/Pet"
       security:
         - jwt: ["write"]
           apiKey: []
@@ -53,21 +53,21 @@ paths:
       description: Update an existing pet by Id
       operationId: updatePet
       responses:
-        '200':
+        "200":
           description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Pet'
-        '400':
+                $ref: "#/components/schemas/Pet"
+        "400":
           description: Invalid ID supplied
-        '404':
+        "404":
           description: Pet not found
-          content: 
+          content:
             text/text:
               schema:
                 type: string
-        '405':
+        "405":
           description: Validation exception
       requestBody:
         description: Update an existent pet in the store
@@ -75,7 +75,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Pet'
+              $ref: "#/components/schemas/Pet"
       security:
         - jwt: []
   # /pet/findByStatus:
@@ -144,7 +144,7 @@ paths:
   #         description: Invalid tag value
   #     security:
   #       - jwt: []
-  '/pet/{petId}':
+  "/pet/{petId}":
     get:
       tags:
         - pet
@@ -160,19 +160,19 @@ paths:
             type: integer
             format: int64
       responses:
-        '200':
+        "200":
           description: successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Pet'
-        '400':
+                $ref: "#/components/schemas/Pet"
+        "400":
           description: Invalid ID supplied
           content:
             text/text:
               schema:
                 type: string
-        '404':
+        "404":
           description: Pet not found
           content:
             text/text:
@@ -608,7 +608,7 @@ components:
       type: apiKey
       in: header
       name: X-APP-ID
-    cookieAuth: 
+    cookieAuth:
       type: apiKey
       in: cookie
       name: JSESSIONID
@@ -622,16 +622,16 @@ components:
             write_pets: modify pets in your account
     oAuthMulti:
       type: oauth2
-      flows: 
+      flows:
         clientCredentials:
           tokenUrl: https://api.getbase.com/oauth2/client_credentials
           scopes:
             read: Grant read-only access to all your data except for the account and user info
             write: Grant write-only access to all your data except for the account and user info
             profile: Grant read-only access to the account and user info only
-        password: 
+        password:
           tokenUrl: https://api.getbase.com/oauth2/token
-          scopes: 
+          scopes:
             read: Grant read-only access to all your data except for the account and user info
             write: Grant write-only access to all your data except for the account and user info
             profile: Grant read-only access to the account and user info only
@@ -676,7 +676,7 @@ components:
         address:
           type: array
           items:
-            $ref: '#/components/schemas/Address'
+            $ref: "#/components/schemas/Address"
     Address:
       properties:
         street:
@@ -757,7 +757,7 @@ components:
           pattern: ^(dog|Dog|cat|Cat).*
           example: doggie
         category:
-          $ref: '#/components/schemas/Category'
+          $ref: "#/components/schemas/Category"
         photoUrls:
           type: array
           items:
@@ -765,7 +765,7 @@ components:
         tags:
           type: array
           items:
-            $ref: '#/components/schemas/Tag'
+            $ref: "#/components/schemas/Tag"
         status:
           type: string
           description: pet status in the store
@@ -787,7 +787,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Pet'
+            $ref: "#/components/schemas/Pet"
       description: Pet object that needs to be added to the store
     UserArray:
       content:
@@ -795,5 +795,5 @@ components:
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/User'
+              $ref: "#/components/schemas/User"
       description: List of user object

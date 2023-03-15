@@ -1,16 +1,13 @@
-// ///////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////
 //
 // Route Handlers
 //
-// This file contains the route handlers for the pet shop example. 
+// This file contains the route handlers for the pet shop example.
 //
-// ///////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////
 import _ from "lodash";
 
-import {
-    Request, 
-    Response, 
-} from "express";
+import { Request, Response } from "express";
 
 import data from "./data";
 
@@ -22,13 +19,13 @@ const addPet = (req: Request, res: Response) => {
 
     return res.status(200).json(req.body);
 
-    // const borkedResponse = {
+    // const brokenResponse = {
     //     ...req.body,
     //     id: "This should be an int",
     //     foo: "This should not exists",
     // };
-    // delete borkedResponse.name;
-    // return res.status(200).json(borkedResponse);
+    // delete brokenResponse.name;
+    // return res.status(200).json(brokenResponse);
 };
 
 const updatePet = (req: Request, res: Response) => {
@@ -55,7 +52,7 @@ const getPetById = (req: Request, res: Response) => {
 };
 
 export default {
-    addPet, 
-    updatePet, 
+    addPet,
+    updatePet,
     getPetById,
 };

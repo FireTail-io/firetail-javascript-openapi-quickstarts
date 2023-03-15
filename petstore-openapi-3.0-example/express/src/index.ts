@@ -82,13 +82,6 @@ const firetailContext = {
 // Express app
 const app: Application = express();
 
-// DEMO for non spec routing
-// eslint-disable-next-line
-// @ts-ignore
-// app.use(firetail(firetailContext));
-// app.delete("/pet", (req, res) => { res.send("WHOOPSIE"); });
-// app.get("/unsanctioned", (req, res) => { res.send("WHOOPSIE"); });
-
 initialize({
     app: app,
     apiDoc: {
