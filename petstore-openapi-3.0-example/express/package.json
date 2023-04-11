@@ -43,7 +43,7 @@
   "nodemonConfig": {
     "watch": [
       "src",
-      "../../../firetail-js-lib/dist",
+      "../../../firetail-js-lib-enterprise/dist",
       "../swagger-petstore-3.0-example.yaml"
     ],
     "delay": "100",

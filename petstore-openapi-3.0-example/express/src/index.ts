@@ -13,7 +13,7 @@ import auth from "./auth";
 
 import operations from "./operations";
 
-import firetail from "../../../../firetail-js-lib/dist";
+import firetail from "../../../../firetail-js-lib-enterprise/dist";
 
 import * as dotenv from "dotenv";
 dotenv.config();
