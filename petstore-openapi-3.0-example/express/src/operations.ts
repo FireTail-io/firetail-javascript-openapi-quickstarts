@@ -18,14 +18,21 @@ const addPet = (req: Request, res: Response) => {
     data.pets = _.unionBy(data.pets, [req.body], "id");
 
     return res.status(200).json(req.body);
+};
 
-    // const brokenResponse = {
-    //     ...req.body,
-    //     id: "This should be an int",
-    //     foo: "This should not exists",
-    // };
-    // delete brokenResponse.name;
-    // return res.status(200).json(brokenResponse);
+const addPetBroken = (req: Request, res: Response) => {
+    if (!req.body?.name || !req.body?.photoUrls?.length) {
+        return res.status(405).send("Invalid Input");
+    }
+    data.pets = _.unionBy(data.pets, [req.body], "id");
+
+    const brokenResponse = {
+        ...req.body,
+        id: "This should be an int",
+        foo: "This should not exists",
+    };
+    delete brokenResponse.name;
+    return res.status(200).json(brokenResponse);
 };
 
 const updatePet = (req: Request, res: Response) => {
@@ -55,4 +62,5 @@ export default {
     addPet,
     updatePet,
     getPetById,
+    addPetBroken,
 };

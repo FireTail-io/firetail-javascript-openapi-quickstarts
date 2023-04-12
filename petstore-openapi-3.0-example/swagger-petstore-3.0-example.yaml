@@ -16,22 +16,16 @@ tags:
     description: Operations about user
 
 paths:
-  /pet:
+  /pet/add:
     post:
       tags:
         - pet
-      summary: Add a new pet to the store
+      summary: Add a new with correct response
       description: Add a new pet to the store
       operationId: addPet
       responses:
         "200":
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Pet"
-        "405":
-          description: Invalid input
+          $ref: "#/components/responses/200"
       requestBody:
         description: Create a new pet in the store
         required: true
@@ -46,6 +40,31 @@ paths:
         authenticated-principal-path: user.userId
       x-ft-sensitive-headers:
         - X-Pet-Store-Secret-Key
+  /pet/add/broken:
+    post:
+      tags:
+        - pet
+      summary: Add a new with broken response
+      description: Add a new pet to the store
+      operationId: addPetBroken
+      responses:
+        "200":
+          $ref: "#/components/responses/200"
+      requestBody:
+        description: Create a new pet in the store
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Pet"
+      security:
+        - jwt: ["write"]
+          apiKey: []
+      x-ft-security:
+        authenticated-principal-path: user.userId
+      x-ft-sensitive-headers:
+        - X-Pet-Store-Secret-Key
+  /pet/update:
     put:
       tags:
         - pet
@@ -54,21 +73,7 @@ paths:
       operationId: updatePet
       responses:
         "200":
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Pet"
-        "400":
-          description: Invalid ID supplied
-        "404":
-          description: Pet not found
-          content:
-            text/text:
-              schema:
-                type: string
-        "405":
-          description: Validation exception
+          $ref: "#/components/responses/200"
       requestBody:
         description: Update an existent pet in the store
         required: true
@@ -78,12 +83,12 @@ paths:
               $ref: "#/components/schemas/Pet"
       security:
         - jwt: []
-  "/pet-auth-user-id/{petId}":
+  "/pet/{petId}/get-with-user-id-based-auth":
     get:
       tags:
         - pet
-      summary: Find pet by ID
-      description: Returns a single pet
+      summary: Find pet with user ID based authorisation
+      description: Returns a single pet if ownerId == userId
       operationId: getPetById
       parameters:
         - name: petId
@@ -95,35 +100,19 @@ paths:
             format: int64
       responses:
         "200":
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Pet"
-        "400":
-          description: Invalid ID supplied
-          content:
-            text/text:
-              schema:
-                type: string
-        "404":
-          description: Pet not found
-          content:
-            text/text:
-              schema:
-                type: string
+          $ref: "#/components/responses/200"
       security:
         - jwt: []
       x-ft-security:
         authenticated-principal-path: user.userId
         access-resolver: petAccess
         resource-authorised-principal-path: ownerId
-  "/pet-auth-tag/{petId}":
+  "/pet/{petId}/get-with-tag-based-auth":
     get:
       tags:
         - pet
-      summary: Find pet by ID
-      description: Returns a single pet
+      summary: Find pet with tag based authorisation
+      description: Returns a single pet is user has access to any of pet's tags
       operationId: getPetById
       parameters:
         - name: petId
@@ -135,23 +124,7 @@ paths:
             format: int64
       responses:
         "200":
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Pet"
-        "400":
-          description: Invalid ID supplied
-          content:
-            text/text:
-              schema:
-                type: string
-        "404":
-          description: Pet not found
-          content:
-            text/text:
-              schema:
-                type: string
+          $ref: "#/components/responses/200"
       security:
         - jwt: []
       x-ft-security:
@@ -255,10 +228,10 @@ components:
             - available
             - pending
             - sold
-  requestBodies:
-    Pet:
+  responses:
+    "200":
+      description: Successful operation
       content:
         application/json:
           schema:
             $ref: "#/components/schemas/Pet"
-      description: Pet object that needs to be added to the store
