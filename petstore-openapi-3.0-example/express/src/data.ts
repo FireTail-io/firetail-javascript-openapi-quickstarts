@@ -7,23 +7,19 @@ const pets = [
                 id: 1,
                 name: "tag1",
             },
-            {
-                id: 2,
-                name: "tag2",
-            },
         ],
-        ownerId: 1,
+        ownerId: 1, // <- Not authorized
     },
     {
         id: 12,
         name: "dog",
         tags: [
             {
-                id: 3,
-                name: "tag3",
+                id: 2,
+                name: "tag2",
             },
         ],
-        ownerId: 1234567890,
+        ownerId: 1234567890, // <- Authorized
     },
 ];
 
