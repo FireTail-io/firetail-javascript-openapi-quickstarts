@@ -24,7 +24,7 @@ paths:
             schema:
               $ref: "#/components/schemas/Pet"
       security:
-        - jwt: ["write"]
+        - jwt: []
       x-ft-security:
         authenticated-principal-path: user.userId
       x-ft-sensitive-headers:

@@ -13,7 +13,6 @@ const pets = [
             },
         ],
         ownerId: 0,
-        internalId: "This should not be exposed",
     },
     {
         id: 12,
@@ -29,7 +28,6 @@ const pets = [
             },
         ],
         ownerId: 0,
-        internalId: "This should not be exposed",
     },
     {
         id: 13,
@@ -45,7 +43,6 @@ const pets = [
             },
         ],
         ownerId: 1234567890,
-        internalId: "This should not be exposed",
     },
 ];
 
