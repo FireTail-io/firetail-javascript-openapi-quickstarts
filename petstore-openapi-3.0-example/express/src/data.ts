@@ -1,7 +1,7 @@
 const pets = [
     {
         id: 11,
-        name: "cat 1",
+        name: "cat",
         tags: [
             {
                 id: 1,
@@ -16,7 +16,7 @@ const pets = [
     },
     {
         id: 12,
-        name: "cat 2",
+        name: "dog",
         tags: [
             {
                 id: 3,
