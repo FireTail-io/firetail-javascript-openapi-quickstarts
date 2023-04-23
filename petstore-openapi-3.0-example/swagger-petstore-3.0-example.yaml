@@ -7,20 +7,10 @@ info:
 servers:
   - url: http://localhost:3001
 
-tags:
-  - name: pet
-    description: Everything about your Pets
-  - name: store
-    description: Access to Petstore orders
-  - name: user
-    description: Operations about user
-
 paths:
   /pet/add:
     post:
-      tags:
-        - pet
-      summary: Add a new with correct response
+      summary: Add a new pet with correct response
       description: Add a new pet to the store
       operationId: addPet
       responses:
@@ -35,16 +25,13 @@ paths:
               $ref: "#/components/schemas/Pet"
       security:
         - jwt: ["write"]
-          apiKey: []
       x-ft-security:
         authenticated-principal-path: user.userId
       x-ft-sensitive-headers:
         - X-Pet-Store-Secret-Key
   /pet/add/broken:
     post:
-      tags:
-        - pet
-      summary: Add a new with broken response
+      summary: Add a new pet with broken response
       description: Add a new pet to the store
       operationId: addPetBroken
       responses:
@@ -59,34 +46,12 @@ paths:
               $ref: "#/components/schemas/Pet"
       security:
         - jwt: ["write"]
-          apiKey: []
       x-ft-security:
         authenticated-principal-path: user.userId
       x-ft-sensitive-headers:
         - X-Pet-Store-Secret-Key
-  /pet/update:
-    put:
-      tags:
-        - pet
-      summary: Update an existing pet
-      description: Update an existing pet by Id
-      operationId: updatePet
-      responses:
-        "200":
-          $ref: "#/components/responses/200"
-      requestBody:
-        description: Update an existent pet in the store
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Pet"
-      security:
-        - jwt: []
   "/pet/{petId}/get-with-user-id-based-auth":
     get:
-      tags:
-        - pet
       summary: Find pet with user ID based authorisation
       description: Returns a single pet if ownerId == userId
       operationId: getPetById
@@ -101,16 +66,16 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/200"
+        "404":
+          $ref: "#/components/responses/404"
       security:
         - jwt: []
       x-ft-security:
-        authenticated-principal-path: user.userId
         access-resolver: petAccess
+        authenticated-principal-path: user.userId
         resource-authorised-principal-path: ownerId
   "/pet/{petId}/get-with-tag-based-auth":
     get:
-      tags:
-        - pet
       summary: Find pet with tag based authorisation
       description: Returns a single pet is user has access to any of pet's tags
       operationId: getPetById
@@ -125,11 +90,14 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/200"
+        "404":
+          $ref: "#/components/responses/404"
       security:
         - jwt: []
       x-ft-security:
-        authenticated-principal-path: user.userId
         access-resolver: petAccessByTag
+        authenticated-principal-path: user.userId
+
 components:
   securitySchemes:
     basicAuth:
@@ -195,7 +163,6 @@ components:
       additionalProperties: false
       required:
         - name
-        - photoUrls
       properties:
         id:
           type: integer
@@ -209,7 +176,7 @@ components:
           readOnly: true
         name:
           type: string
-          pattern: ^(dog|Dog|cat|Cat).*
+          pattern: (dog|cat)
           example: doggie
         category:
           $ref: "#/components/schemas/Category"
@@ -235,3 +202,9 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/Pet"
+    "404":
+      description: Request failed
+      content:
+        text/plain:
+          schema:
+            type: string

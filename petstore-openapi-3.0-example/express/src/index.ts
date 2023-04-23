@@ -1,3 +1,4 @@
+/* eslint-disable */
 import express, { Application } from "express";
 import { initialize } from "express-openapi";
 
@@ -8,6 +9,7 @@ import bodyParser from "body-parser";
 
 import map from "lodash/map";
 import some from "lodash/some";
+import find from "lodash/find";
 
 import auth from "./auth";
 
@@ -35,32 +37,54 @@ const firetailContext = {
     apiDocPath: apiDocPath,
     firetailAPIKey: process.env.FIRETAIL_API_KEY,
     firetailAPIHost: process.env.FIRETAIL_API_HOST,
+
+    /**
+     * Define sensitive headers
+     **/
     sensitiveHeaders: ["X-Custom-Cookie"],
+
+    /**
+     * Define handlers for the OpenAPI security schemas
+     **/
     securityHandlers: {
-        // eslint-disable-next-line
         jwt: (request, scopes, securityDefinition) => {
+            const auth = request.headers.authorization;
+            if (auth !== "Bearer 12345678-abcd-abcd-abcd-1234567890ab") {
+                return false;
+            }
             request.user = {
                 name: "Fred Flintstone",
                 userId: 1234567890,
             };
             return true;
         },
-        // eslint-disable-next-line
         apiKey: (request, scopes, securityDefinition) => true,
     },
-    identityResolvers: {},
+
+    /**
+     * Define resolvers for authorization checks
+     **/
     accessResolvers: {
-        // eslint-disable-next-line
+        /**
+         * A simple resolver can check that the owner (authorized principal)
+         * of the resource is the same as the logged in user (authenticated
+         * principal)
+         **/
         petAccess: (authNPrincipal, authZPrincipal, authZResource) => {
             return authNPrincipal === authZPrincipal;
         },
+
+        /**
+         * A resolver can perform async authorization checks against more
+         * complicated authorization models (RBAC, ABAC). In this case an
+         * OpenFGA authorization model which grants access based on pet's
+         * tags.
+         **/
         petAccessByTag: async (
             authNPrincipal,
             authZPrincipal,
             authZResource
         ) => {
-            // authZResource contains a "tags" array and we can check each tag
-            // for authZ via OpenFGA
             const checks = await Promise.all(
                 map(authZResource.tags, async t => {
                     return await auth.fgaClient.check({
@@ -73,7 +97,6 @@ const firetailContext = {
                     });
                 })
             );
-            // checks is of the form [{allowed: <boolean>, ...}, ...]
             return some(checks, "allowed");
         },
     },

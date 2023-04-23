@@ -12,20 +12,12 @@ import { Request, Response } from "express";
 import data from "./data";
 
 const addPet = (req: Request, res: Response) => {
-    if (!req.body?.name || !req.body?.photoUrls?.length) {
-        return res.status(405).send("Invalid Input");
-    }
     data.pets = _.unionBy(data.pets, [req.body], "id");
-
     return res.status(200).json(req.body);
 };
 
 const addPetBroken = (req: Request, res: Response) => {
-    if (!req.body?.name || !req.body?.photoUrls?.length) {
-        return res.status(405).send("Invalid Input");
-    }
     data.pets = _.unionBy(data.pets, [req.body], "id");
-
     const brokenResponse = {
         ...req.body,
         id: "This should be an int",
@@ -37,9 +29,6 @@ const addPetBroken = (req: Request, res: Response) => {
 
 const updatePet = (req: Request, res: Response) => {
     const id = +req.body.id;
-    if (!_.isFinite(id)) {
-        return res.status(404).send("Invalid ID supplied");
-    }
     if (!_.find(data.pets, { id })) {
         return res.status(404).send("Pet not found");
     }
@@ -49,10 +38,8 @@ const updatePet = (req: Request, res: Response) => {
 
 const getPetById = (req: Request, res: Response) => {
     const id = +req.params.petId;
-    if (!_.isFinite(id)) {
-        return res.status(400).send("Invalid ID supplied");
-    }
     if (!_.find(data.pets, { id })) {
+        console.log("HEP");
         return res.status(404).send("Pet not found");
     }
     return res.status(200).json(_.find(data.pets, { id }));

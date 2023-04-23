@@ -5,8 +5,7 @@ const pets = [
             id: 2,
             name: "Cats",
         },
-        name: "Cat 1",
-        photoUrls: ["url1", "url2"],
+        name: "cat 1",
         tags: [
             {
                 id: 1,
@@ -17,17 +16,15 @@ const pets = [
                 name: "tag2",
             },
         ],
-        status: "available",
-        ownerId: 1,
+        ownerId: 0,
     },
     {
         id: 12,
         category: {
-            id: 2,
-            name: "Cats",
+            id: 1,
+            name: "Dogs",
         },
-        name: "Cat 2",
-        photoUrls: ["url1", "url2"],
+        name: "dog 1",
         tags: [
             {
                 id: 2,
@@ -38,8 +35,7 @@ const pets = [
                 name: "tag9",
             },
         ],
-        status: "available",
-        ownerId: 2,
+        ownerId: 0,
     },
     {
         id: 13,
@@ -47,8 +43,7 @@ const pets = [
             id: 2,
             name: "Cats",
         },
-        name: "Cat 3",
-        photoUrls: ["url1", "url2"],
+        name: "cat 2",
         tags: [
             {
                 id: 3,
@@ -59,7 +54,6 @@ const pets = [
                 name: "tag4",
             },
         ],
-        status: "pending",
         ownerId: 1234567890,
     },
 ];
