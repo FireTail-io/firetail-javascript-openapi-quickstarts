@@ -1,10 +1,6 @@
 const pets = [
     {
         id: 11,
-        category: {
-            id: 2,
-            name: "Cats",
-        },
         name: "cat 1",
         tags: [
             {
@@ -17,13 +13,10 @@ const pets = [
             },
         ],
         ownerId: 0,
+        internalId: "This should not be exposed",
     },
     {
         id: 12,
-        category: {
-            id: 1,
-            name: "Dogs",
-        },
         name: "dog 1",
         tags: [
             {
@@ -36,13 +29,10 @@ const pets = [
             },
         ],
         ownerId: 0,
+        internalId: "This should not be exposed",
     },
     {
         id: 13,
-        category: {
-            id: 2,
-            name: "Cats",
-        },
         name: "cat 2",
         tags: [
             {
@@ -55,6 +45,7 @@ const pets = [
             },
         ],
         ownerId: 1234567890,
+        internalId: "This should not be exposed",
     },
 ];
 
