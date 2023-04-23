@@ -26,7 +26,7 @@ const addPetBroken = (req: Request, res: Response) => {
 
 const getPetById = (req: Request, res: Response) => {
     const id = +req.params.petId;
-    return res.status(200).json(_.find(data.pets, { id }));
+    return res.status(200).json({ ..._.find(data.pets, { id }) });
 };
 
 export default {

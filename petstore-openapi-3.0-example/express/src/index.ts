@@ -58,7 +58,6 @@ const firetailContext = {
             };
             return true;
         },
-        apiKey: (request, scopes, securityDefinition) => true,
     },
 
     /**
