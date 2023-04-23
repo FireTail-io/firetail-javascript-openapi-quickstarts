@@ -1,3 +1,4 @@
+/* eslint-disable */
 const pets = [
     {
         id: 11,
@@ -8,18 +9,13 @@ const pets = [
                 name: "tag1",
             },
         ],
-        ownerId: 1, // <- Not authorized
+        ownerId: 1,
     },
     {
         id: 12,
         name: "dog",
-        tags: [
-            {
-                id: 2,
-                name: "tag2",
-            },
-        ],
-        ownerId: 1234567890, // <- Authorized
+        tags: [],
+        ownerId: 1234567890,
     },
 ];
 
