@@ -6,7 +6,7 @@ const pets = [
         tags: [
             {
                 id: 1,
-                name: "tag1",
+                name: "authorized tag",
             },
         ],
         ownerId: 1,
@@ -14,7 +14,12 @@ const pets = [
     {
         id: 12,
         name: "dog",
-        tags: [],
+        tags: [
+            {
+                id: 3,
+                name: "not authorized tag",
+            },
+        ],
         ownerId: 1234567890,
     },
 ];

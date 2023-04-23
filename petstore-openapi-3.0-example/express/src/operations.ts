@@ -26,13 +26,13 @@ const addPetBroken = (req: Request, res: Response) => {
 
 const getPetById = (req: Request, res: Response) => {
     /**
-     * Find the pet with id
+     * Find the pet with requested id
      **/
     const id = +req.params.petId;
     const pet = { ..._.find(data.pets, { id }) };
 
     /**
-     * Unconstrained data return
+     * Unconstrained data return, no authZ check!
      **/
     return res.status(200).json(pet);
 };
