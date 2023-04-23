@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Swagger Petstore - OpenAPI 3.0
   version: "0.1"
-  description: This is a sample Pet Store Server based on the OpenAPI 3.0 specification.
+  description: This is a sample Pet Store Server based on the OpenAPI 3.0 spec.
 
 servers:
   - url: http://localhost:3001
@@ -100,48 +100,10 @@ paths:
 
 components:
   securitySchemes:
-    basicAuth:
-      type: http
-      scheme: basic
     jwt:
       type: http
       scheme: bearer
       bearerFormat: JWT
-    apiKey:
-      type: apiKey
-      in: header
-      name: X-API-KEY
-    appId:
-      type: apiKey
-      in: header
-      name: X-APP-ID
-    cookieAuth:
-      type: apiKey
-      in: cookie
-      name: JSESSIONID
-    oAuth:
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: https://api.example.com/oauth2/authorize
-          scopes:
-            read_pets: read pets in your account
-            write_pets: modify pets in your account
-    oAuthMulti:
-      type: oauth2
-      flows:
-        clientCredentials:
-          tokenUrl: https://api.getbase.com/oauth2/client_credentials
-          scopes:
-            read: Grant read-only access to all your data except for the account and user info
-            write: Grant write-only access to all your data except for the account and user info
-            profile: Grant read-only access to the account and user info only
-        password:
-          tokenUrl: https://api.getbase.com/oauth2/token
-          scopes:
-            read: Grant read-only access to all your data except for the account and user info
-            write: Grant write-only access to all your data except for the account and user info
-            profile: Grant read-only access to the account and user info only
   schemas:
     Tag:
       properties:
