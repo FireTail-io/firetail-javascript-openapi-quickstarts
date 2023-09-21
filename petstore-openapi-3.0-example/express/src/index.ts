@@ -28,7 +28,7 @@ dotenv.config();
 // YAML file => apiDoc
 const apiDocPath = path.resolve(
     __dirname,
-    "../../swagger-petstore-3.0-example.yaml"
+    "../../swagger-petstore-3.0-example.yaml",
 );
 const apiDoc = yaml.parse(fs.readFileSync(apiDocPath, "utf8"));
 
@@ -65,24 +65,14 @@ const firetailContext = {
      **/
     accessResolvers: {
         /**
-         * A simple resolver can check that the owner (authorized principal)
-         * of the resource is the same as the logged in user (authenticated
-         * principal)
-         **/
-        petAccess: (authNPrincipal, authZPrincipal, authZResource) => {
-            return authNPrincipal === authZPrincipal;
-        },
-
-        /**
          * A resolver can perform async authorization checks against more
          * complicated authorization models (RBAC, ABAC). In this case an
-         * OpenFGA authorization model which grants access based on pet's
-         * tags.
+         * OpenFGA authZ model which grants access based on pet's tags.
          **/
         petAccessByTag: async (
             authNPrincipal,
             authZPrincipal,
-            authZResource
+            authZResource,
         ) => {
             const checks = await Promise.all(
                 map(authZResource.tags, async t => {
@@ -94,7 +84,7 @@ const firetailContext = {
                             object: `tag:${t.id}`,
                         },
                     });
-                })
+                }),
             );
             return some(checks, "allowed");
         },
