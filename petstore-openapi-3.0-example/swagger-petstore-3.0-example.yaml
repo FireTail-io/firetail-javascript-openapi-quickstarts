@@ -31,6 +31,9 @@ paths:
       x-ft-security:
         access-resolver: petAccessByTag
         authenticated-principal-path: user.userId
+      # x-ft-security:
+      #   authenticated-principal-path: user.userId
+      #   resource-authorised-principal-path: ownerId
 
 components:
   securitySchemes:
