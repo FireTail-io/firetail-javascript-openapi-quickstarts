@@ -11,7 +11,7 @@ paths:
   "/pet/{petId}/get-with-tag-based-auth":
     get:
       summary: Find pet with tag based authorisation
-      description: Returns a single pet is user has access to any of pet's tags
+      description: Returns a single pet if user has access to any of pet's tags
       operationId: getPetById
       parameters:
         - name: petId
