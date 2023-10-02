@@ -36,6 +36,19 @@ const getPetById = (req: Request, res: Response) => {
     return res.status(200).json(pet); // <- UNCONTRAINED DATA RETURN
 };
 
+const addPet = (req: Request, res: Response) => {
+    data.pets = _.unionBy(data.pets, [req.body], "id");
+
+    // const brokenResponse = {
+    //     ...req.body,
+    //     id: "This should be an int",
+    //     foo: "This should not exists",
+    // };
+    // delete brokenResponse.name;
+
+    return res.status(200).json(req.body);
+};
+
 export default {
     getPetById,
 };
