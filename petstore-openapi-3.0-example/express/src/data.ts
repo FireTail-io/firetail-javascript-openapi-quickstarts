@@ -9,7 +9,7 @@ const pets = [
                 name: "authorized tag",
             },
         ],
-        ownerId: 1,
+        ownerId: 1, // <- WRONG OWNER ID
     },
     {
         id: 12,
@@ -20,7 +20,7 @@ const pets = [
                 name: "not authorized tag",
             },
         ],
-        ownerId: 1234567890,
+        ownerId: 1234567890, // <- CORRECT OWNER ID
     },
 ];
 
