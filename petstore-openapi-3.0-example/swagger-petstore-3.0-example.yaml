@@ -8,7 +8,7 @@ servers:
   - url: http://localhost:3001
 
 paths:
-  "/pet/{petId}/get-with-tag-based-auth":
+  "/pet/{petId}":
     get:
       summary: Find pet with tag based authorisation
       description: Returns a single pet if user has access to any of pet's tags
@@ -28,12 +28,14 @@ paths:
           $ref: "#/components/responses/404"
       security:
         - jwt: []
-      x-ft-security:
-        access-resolver: petAccessByTag
-        authenticated-principal-path: user.userId
       # x-ft-security:
+      #   access-resolver: petAccessByTag
       #   authenticated-principal-path: user.userId
-      #   resource-authorised-principal-path: ownerId
+      x-ft-security:
+        authenticated-principal-path: user.userId
+        resource-authorised-principal-path: ownerId
+      x-ft-sensitive-headers:
+        - postman-token
 
 components:
   securitySchemes:
