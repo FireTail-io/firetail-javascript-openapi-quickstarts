@@ -76,14 +76,14 @@ openFga
                     writes: {
                         tuple_keys: [
                             {
-                                user: "user:1234567890",
+                                user: "user:1",
                                 relation: "reader",
-                                object: "tag:1",
+                                object: "tag:100",
                             },
                             {
-                                user: "user:1234567890",
+                                user: "user:1",
                                 relation: "reader",
-                                object: "tag:2",
+                                object: "tag:200",
                             },
                         ],
                     },

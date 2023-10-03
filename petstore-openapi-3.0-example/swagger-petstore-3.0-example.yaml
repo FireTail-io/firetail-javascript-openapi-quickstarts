@@ -1,8 +1,7 @@
 openapi: 3.0.0
 info:
-  title: Swagger Petstore - OpenAPI 3.0
+  title: Petstore - OpenAPI 3.0
   version: "0.1"
-  description: This is a sample Pet Store Server based on the OpenAPI 3.0 spec.
 
 servers:
   - url: http://localhost:3001
@@ -10,13 +9,10 @@ servers:
 paths:
   "/pet/{petId}":
     get:
-      summary: Find pet with tag based authorisation
-      description: Returns a single pet if user has access to any of pet's tags
       operationId: getPetById
       parameters:
         - name: petId
           in: path
-          description: ID of pet to return
           required: true
           schema:
             type: integer
@@ -27,22 +23,38 @@ paths:
         "404":
           $ref: "#/components/responses/404"
       security:
-        - jwt: []
-      # x-ft-security:
-      #   access-resolver: petAccessByTag
-      #   authenticated-principal-path: user.userId
+        - bearer: []
       x-ft-security:
         authenticated-principal-path: user.userId
         resource-authorised-principal-path: ownerId
+        # access-resolver: petAccessByTag
+      x-ft-sensitive-headers:
+        - postman-token
+  /pet/add:
+    post:
+      operationId: addPet
+      responses:
+        "200":
+          $ref: "#/components/responses/200"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Pet"
+      security:
+        - bearer: ["write"]
+      x-ft-security:
+        authenticated-principal-path: user.userId
       x-ft-sensitive-headers:
         - postman-token
 
 components:
   securitySchemes:
-    jwt:
+    bearer:
       type: http
       scheme: bearer
-      bearerFormat: JWT
+      bearerFormat: UUID
   schemas:
     Tag:
       properties:
@@ -55,6 +67,7 @@ components:
       additionalProperties: false
       required:
         - name
+        - id
       properties:
         id:
           type: integer
@@ -62,8 +75,8 @@ components:
           example: 10
         name:
           type: string
-          pattern: (dog|cat)
-          example: doggie
+          pattern: ^(dog|cat)$
+          example: dog
         tags:
           type: array
           items:

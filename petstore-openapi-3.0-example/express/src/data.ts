@@ -2,25 +2,25 @@
 const pets = [
     {
         id: 11,
-        name: "cat",
-        tags: [
-            {
-                id: 1,
-                name: "authorized tag",
-            },
-        ],
-        ownerId: 1, // <- WRONG OWNER ID
-    },
-    {
-        id: 12,
         name: "dog",
         tags: [
             {
-                id: 3,
+                id: 400,
                 name: "not authorized tag",
             },
         ],
-        ownerId: 1234567890, // <- CORRECT OWNER ID
+        ownerId: 1, // <- CORRECT OWNER ID
+    },
+    {
+        id: 12,
+        name: "cat",
+        tags: [
+            {
+                id: 200,
+                name: "authorized tag",
+            },
+        ],
+        ownerId: 1234567890, // <- WRONG OWNER ID
     },
 ];
 

@@ -32,7 +32,9 @@ const apiDocPath = path.resolve(
 );
 const apiDoc = yaml.parse(fs.readFileSync(apiDocPath, "utf8"));
 
-// FireTail setup
+/**
+ * FireTail Setup
+ **/
 const firetailContext = {
     apiDocPath: apiDocPath,
     firetailAPIKey: process.env.FIRETAIL_API_KEY,
@@ -47,14 +49,14 @@ const firetailContext = {
      * Define handlers for the OpenAPI security schemas
      **/
     securityHandlers: {
-        jwt: (request, scopes, securityDefinition) => {
+        bearer: (request, scopes, securityDefinition) => {
             const auth = request.headers.authorization;
-            if (auth !== "Bearer 12345678-abcd-abcd-abcd-1234567890ab") {
+            if (auth !== "Bearer 12345678-1234-1234-1234-1234567890ab") {
                 return false;
             }
             request.user = {
                 name: "Fred Flintstone",
-                userId: 1234567890,
+                userId: 1,
             };
             return true;
         },
@@ -98,9 +100,10 @@ initialize({
     app: app,
     apiDoc: {
         ...apiDoc,
-        // Inject FT middleware
+        /**
+         * Add FireTail as middleware
+         **/
         "x-express-openapi-additional-middleware": [firetail(firetailContext)],
-        // Disable the overly helpful built-in validators
         "x-express-openapi-disable-validation-middleware": true,
     },
     operations: operations,
