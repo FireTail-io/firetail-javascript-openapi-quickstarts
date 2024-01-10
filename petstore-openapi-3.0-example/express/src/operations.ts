@@ -8,15 +8,14 @@ const getPetById = (req: Request, res: Response) => {
     const id = +req.params.petId;
     const pet = { ..._.find(data.pets, { id }) };
 
-    return res.status(200).json(pet); // <- UNCONTRAINED DATA RETURN
+    return res.status(200).json(pet); // <- Unconstrained Data Return
 };
 
 const addPet = (req: Request, res: Response) => {
     data.pets = _.unionBy(data.pets, [req.body], "id");
 
     const response = {
-        ...pet,
-        // id: "This should be an int",
+        ...req.body,
         // foo: "This should not exists",
     };
     // delete response.name;
