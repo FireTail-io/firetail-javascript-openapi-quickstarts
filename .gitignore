@@ -2,3 +2,4 @@
 .DS_Store
 *.sublime-project
 *.sublime-workspace
+petstore-openapi-3.0-example/express/.env
